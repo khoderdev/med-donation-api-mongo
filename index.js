@@ -3,8 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-require('dotenv').config();
-
+require("dotenv").config();
 
 const app = express();
 const PORT = 3000;
@@ -14,11 +13,16 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URL, {
+// MongoDB Connection
+mongoose.connect(process.env.RAILWAY_MONGODB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
+// mongoose.connect(process.env.MONGO_URL, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
 // Define Schema and Model for your data
 const donationSchema = new mongoose.Schema({
